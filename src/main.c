@@ -186,8 +186,11 @@ int main(int argc, char **argv) {
                     break;
 
                 case 'c':
-                    putwchar(cpu->mem[0x101]);
-                    if(cpu->mem[0x101] == 0x0A) printf("\r");
+                    if(cpu->mem[0x101] == 0x0A) {
+                        wprintf(L"\n\r");
+                    } else {
+                        putwchar(cpu->mem[0x101]);
+                    }
                     fflush(stdout);
                     break;
 
